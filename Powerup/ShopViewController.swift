@@ -69,6 +69,7 @@ class ShopViewController: UIViewController {
             score = try dataSource.getScore()
             avatar = try dataSource.getAvatar()
         } catch _ {
+            // If not able to fetch avatar and score.
             let alert = UIAlertController(title: "Warning", message: "Error fetching avatar and score data, please retry this action. If that doesn't help, try restarting or reinstalling the app.", preferredStyle: .alert)
             
             // Exit shop when ok button is pressed.
@@ -83,6 +84,7 @@ class ShopViewController: UIViewController {
         // Set Karma points
         pointsLabel.text = String(score.karmaPoints)
         
+        // To update avatar image
         updateAvatarImageView()
         
         // Configure the exhibition box for hairs (default).
@@ -109,13 +111,13 @@ class ShopViewController: UIViewController {
         
         // Loop through each display box and configure it.
         for boxIndex in 0..<displayBoxCount {
-            // Not enough accessories.
+            // If no more accessories available.
             if (firstAccessoryIndex + boxIndex) >= currDisplayingArray.count {
                 for remainingIndex in boxIndex..<displayBoxCount {
                     // Grey out the box.
                     displayBoxes[remainingIndex].image = UIImage(named: greyOutBoxImageName)
                     
-                    // Price Label
+                    // Set Price Label to null
                     priceLabels[remainingIndex].text = "-"
                     
                     // Hide check mark.
@@ -136,7 +138,7 @@ class ShopViewController: UIViewController {
             
             let currItem = currDisplayingArray[boxIndex + firstAccessoryIndex]
             
-            // Configure the display image.
+            // Configure the display image of items.
             displayImages[boxIndex].image = currItem.displayImage
             
             // Enable buttons.
@@ -148,10 +150,10 @@ class ShopViewController: UIViewController {
             // Change button text according to "item bought".
             buttonTexts[boxIndex].text = currItem.purchased ? "SELECT" : "BUY"
             
-            // Configure the price label.
+            // Configure the price label if it is purchased.
             priceLabels[boxIndex].text = currItem.purchased ? "-" : String(currItem.points)
             
-            // If the item isn't bought and it is unaffordable, grey out the box.
+            // If the item isn't bought and/or it is unaffordable, grey out the box.
             if !currItem.purchased && currItem.points > score.karmaPoints {
                 displayBoxes[boxIndex].image = UIImage(named: greyOutBoxImageName)
                 buttonTexts[boxIndex].text = ""
@@ -161,6 +163,7 @@ class ShopViewController: UIViewController {
         }
     }
     
+    // Reduce karma points after purchasing an item. And save purhased item to database
     func reducePointsAndSaveBoughtToDatabase(accessory: Accessory) throws {
         let newScore = try dataSource.getScore() - Score(karmaPoints: accessory.points)
         
@@ -188,6 +191,7 @@ class ShopViewController: UIViewController {
         return true
     }
     
+    // If error occurs while purchasing an item
     func presentBuyingErrorDiaologue() {
         let alert = UIAlertController(title: "Warning", message: "Error purchasing item, please retry this action. If that doesn't help, try restarting or reinstalling the app.", preferredStyle: .alert)
         let okButton = UIAlertAction(title: "OK", style: .default)
@@ -195,6 +199,7 @@ class ShopViewController: UIViewController {
         self.present(alert, animated: true, completion: nil)
     }
     
+    // Update avatar image after buying items
     func updateAvatarImageView() {
         avatarHairView.image = avatar.hair.image
         avatarFaceView.image = avatar.face.image
@@ -208,11 +213,13 @@ class ShopViewController: UIViewController {
 
     // MARK: Actions
     @IBAction func nextButtonTouched(_ sender: UIButton) {
+        // Next button touched
         firstAccessoryIndex += displayBoxCount
         updateExhibition()
     }
     
     @IBAction func prevButtonTouched(_ sender: UIButton) {
+        // Previous button pressed
         firstAccessoryIndex -= displayBoxCount
         updateExhibition()
     }
@@ -245,13 +252,14 @@ class ShopViewController: UIViewController {
                         
                         // Save the purchased data into the database.
                         do {
-                            // Set the accessories as purchased.
+                            // Mark the accessories as purchased.
                             try self.dataSource.boughtAccessory(accessory: itemChosen)
                             
                             // Reduce Karma Points.
                             self.score.karmaPoints -= itemChosen.points
                             try self.dataSource.saveScore(score: self.score)
                         } catch _ {
+                            // If not able to save purchasing.
                             let failedAlert = UIAlertController(title: "Oops!", message: "Error saving your purchase, please retry this action. If that doesn't help, try restarting or reinstalling the app.", preferredStyle: .alert)
                             failedAlert.addAction(UIAlertAction(title: "OK", style: .default))
                             self.present(failedAlert, animated: true, completion: nil)
@@ -292,18 +300,21 @@ class ShopViewController: UIViewController {
     }
     
     @IBAction func hairCategoryChosen(_ sender: UIButton) {
+        // Hair button tapped
         currDisplayingArray = hairs
         firstAccessoryIndex = 0
         updateExhibition()
     }
     
     @IBAction func clothesCategoryChosen(_ sender: UIButton) {
+        // Clothes button tapped
         currDisplayingArray = clothes
         firstAccessoryIndex = 0
         updateExhibition()
     }
     
     @IBAction func accessoryCategoryChosen(_ sender: UIButton) {
+        // Accessory button pressed
         currDisplayingArray = accessories
         firstAccessoryIndex = 0
         updateExhibition()
