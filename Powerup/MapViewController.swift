@@ -40,6 +40,7 @@ class MapViewController: UIViewController {
             do {
                 currScenario = try dataSource.getScenario(of: scenarioID)
             } catch _ {
+                // If not able to show scenario.
                 let alert = UIAlertController(title: "Warning", message: "Error loading scenarios, please and try again, if this error still occurs, try restarting the app.", preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "OK", style: .default))
                 self.present(alert, animated: true, completion: nil)
@@ -48,11 +49,11 @@ class MapViewController: UIViewController {
             }
             
             if !currScenario.unlocked {
-                // Lock the building.
+                // Lock the scenario building image.
                 button.isHidden = true
                 scenarioImages[index].isHidden = true
             } else {
-                // Unlock the building.
+                // Unlock the scenario building image.
                 button.isHidden = false
                 scenarioImages[index].isHidden = false
             }
@@ -73,7 +74,7 @@ class MapViewController: UIViewController {
             return
         }
         
-        // If completed, go to completed view.
+        // If scenario completed, go to completed view.
         if selectedScenario.completed {
             performSegue(withIdentifier: "toCompletedView", sender: sender)
         } else {
@@ -108,6 +109,7 @@ class MapViewController: UIViewController {
     }
     
     @IBAction func unwindToMap(unwindSegue: UIStoryboardSegue) {
+        // Unwind to Map View
         unlockScenarios()
     }
 }
