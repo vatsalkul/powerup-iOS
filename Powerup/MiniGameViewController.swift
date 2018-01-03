@@ -48,10 +48,12 @@ class MiniGameViewController: UIViewController {
             sinkToSwimGame.viewController = self
             gameScene = sinkToSwimGame
         
+        // If not able to determine mini game
         default:
             print("Unknown mini game.")
         }
         
+        // Configuring mini game view
         gameScene.scaleMode = .resizeFill
         skView.ignoresSiblingOrder = true
         skView.presentScene(gameScene)
@@ -69,6 +71,7 @@ class MiniGameViewController: UIViewController {
     
     // MARK: Segues
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // When mini game is completed
         if let resultVC = segue.destination as? ResultsViewController {
             resultVC.completedScenarioID = completedScenarioID
             resultVC.completedScenarioName = scenarioName
