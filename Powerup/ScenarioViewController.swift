@@ -87,6 +87,7 @@ class ScenarioViewController: UIViewController, UITableViewDelegate, UITableView
             return
         }
     
+        // Configuring items image to avatar
         clothesView.image = avatar.clothes.image
         faceView.image = avatar.face.image
         hairView.image = avatar.hair.image
