@@ -57,6 +57,7 @@ class CustomizeAvatarViewController: UIViewController {
     }
     
     func initializeAccessoryArrays() {
+        // Initializing accessories from database.
         clothes = dataSource.getAccessoryArray(accessoryType: .clothes).filter({a in return a.purchased})
         hairs = dataSource.getAccessoryArray(accessoryType: .hair).filter({a in return a.purchased})
         faces = dataSource.getAccessoryArray(accessoryType: .face).filter({a in return a.purchased})
@@ -64,6 +65,7 @@ class CustomizeAvatarViewController: UIViewController {
     }
     
     func updateClothesImage() {
+        // Updating clothes image
         avatar.clothes = clothes[chosenClothesIndex]
         
         let clothesImage = avatar.clothes.image
@@ -71,6 +73,7 @@ class CustomizeAvatarViewController: UIViewController {
     }
     
     func updateEyesImage() {
+        // Updating eyes image
         avatar.eyes = eyes[chosenEyesIndex]
         
         let eyesImage = avatar.eyes.image
@@ -78,6 +81,7 @@ class CustomizeAvatarViewController: UIViewController {
     }
     
     func updateHairImage() {
+        // Updating hair image
         avatar.hair = hairs[chosenHairIndex]
         
         let hairImage = avatar.hair.image
@@ -85,6 +89,7 @@ class CustomizeAvatarViewController: UIViewController {
     }
     
     func updateFaceImage() {
+        // Updating face image
         avatar.face = faces[chosenFaceIndex]
         
         let faceImage = avatar.face.image
@@ -113,6 +118,7 @@ class CustomizeAvatarViewController: UIViewController {
     
     // MARK: Actions
     @IBAction func eyesLeftButtonTouched(_ sender: UIButton) {
+        // Choosing previous eyes images
         let totalCount = eyes.count
         chosenEyesIndex = (chosenEyesIndex + totalCount - 1) % totalCount
         
@@ -120,6 +126,7 @@ class CustomizeAvatarViewController: UIViewController {
     }
     
     @IBAction func eyesRightButtonTouched(_ sender: UIButton) {
+        // Choosing next eyes images
         let totalCount = eyes.count
         chosenEyesIndex = (chosenEyesIndex + 1) % totalCount
         
@@ -127,6 +134,7 @@ class CustomizeAvatarViewController: UIViewController {
     }
     
     @IBAction func hairLeftButtonTouched(_ sender: UIButton) {
+        // Choosing previous hair images
         let totalCount = hairs.count
         chosenHairIndex = (chosenHairIndex + totalCount - 1) % totalCount
         
@@ -134,6 +142,7 @@ class CustomizeAvatarViewController: UIViewController {
     }
     
     @IBAction func hairRightButtonTouched(_ sender: UIButton) {
+        // Choosing next hair images
         let totalCount = hairs.count
         chosenHairIndex = (chosenHairIndex + 1) % totalCount
         
@@ -141,6 +150,7 @@ class CustomizeAvatarViewController: UIViewController {
     }
     
     @IBAction func faceLeftButtonTouched(_ sender: UIButton) {
+        // Choosing previous face images
         let totalCount = faces.count
         chosenFaceIndex = (chosenFaceIndex + totalCount - 1) % totalCount
         
@@ -148,6 +158,7 @@ class CustomizeAvatarViewController: UIViewController {
     }
     
     @IBAction func faceRightButtonTouched(_ sender: UIButton) {
+        // Choosing next face images
         let totalCount = faces.count
         chosenFaceIndex = (chosenFaceIndex + 1) % totalCount
         
@@ -155,6 +166,7 @@ class CustomizeAvatarViewController: UIViewController {
     }
     
     @IBAction func clothesLeftButtonTouched(_ sender: UIButton) {
+        // Choosing previous clothes images
         let totalCount = clothes.count
         chosenClothesIndex = (chosenClothesIndex + totalCount - 1) % totalCount
         
@@ -162,6 +174,7 @@ class CustomizeAvatarViewController: UIViewController {
     }
     
     @IBAction func clothesRightButtonTouched(_ sender: UIButton) {
+        // Choosing next clothes images
         let totalCount = clothes.count
         chosenClothesIndex = (chosenClothesIndex + 1) % totalCount
         
