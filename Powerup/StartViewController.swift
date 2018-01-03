@@ -13,11 +13,13 @@ class StartViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Check if the database is initialized yet. If no, initialize it.
+        // Check if the database is initialized yet. If not, initialize it.
         if !dataSource.databaseIsInitialized() {
             do {
+                // Trying to initialize database
                 try dataSource.initializeDatabase()
             } catch _ {
+                // Alert! If user data is unable to initialize,
                 let alert = UIAlertController(title: "Warning", message: "Error initializing user data, please restart the app.", preferredStyle: .alert)
                 
                 // Quit app when ok button is clicked.
@@ -57,6 +59,7 @@ class StartViewController: UIViewController {
             
             self.present(alert, animated: true, completion: nil)
         } else {
+            // if previous avatar does not exist, then user will make new avatar
             performSegue(withIdentifier: "toNewAvatar", sender: self)
         }
         
