@@ -57,6 +57,10 @@
 		6AA0D97020BD2EA6009969AE /* Animate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A9A4A1920B51DE500FFC5AA /* Animate.swift */; };
 		6AE6AFF920C1CB02000B7828 /* StorySequencePlayerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AE6AFF820C1CB02000B7828 /* StorySequencePlayerTests.swift */; };
 		6AE6AFFD20C1CCA9000B7828 /* PopupEventPlayerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AE6AFFC20C1CCA9000B7828 /* PopupEventPlayerTests.swift */; };
+		8323C1D72416277C0000CBCA /* PreGameSetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8323C1D62416277C0000CBCA /* PreGameSetupViewController.swift */; };
+		8323C1D924164B600000CBCA /* PreGameImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8323C1D824164B600000CBCA /* PreGameImages.swift */; };
+		8323C1DB241652B80000CBCA /* ImagesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8323C1DA241652B80000CBCA /* ImagesCollectionViewCell.swift */; };
+		83C90547240ECCEB00367F6E /* PreGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C90546240ECCEB00367F6E /* PreGameViewController.swift */; };
 		D910FF191F04AB3200C444DA /* DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D910FF181F04AB3200C444DA /* DataSource.swift */; };
 		D910FF1F1F04DD4F00C444DA /* ResultViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D910FF1E1F04DD4F00C444DA /* ResultViewControllerTests.swift */; };
 		D910FF211F05E22400C444DA /* ScenarioViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D910FF201F05E22400C444DA /* ScenarioViewControllerTests.swift */; };
@@ -177,6 +181,10 @@
 		6A9DA05420C9E66E009C969E /* StorySequencePlayerUnitTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StorySequencePlayerUnitTests.swift; sourceTree = "<group>"; };
 		6AE6AFF820C1CB02000B7828 /* StorySequencePlayerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StorySequencePlayerTests.swift; sourceTree = "<group>"; };
 		6AE6AFFC20C1CCA9000B7828 /* PopupEventPlayerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupEventPlayerTests.swift; sourceTree = "<group>"; };
+		8323C1D62416277C0000CBCA /* PreGameSetupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreGameSetupViewController.swift; sourceTree = "<group>"; };
+		8323C1D824164B600000CBCA /* PreGameImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreGameImages.swift; sourceTree = "<group>"; };
+		8323C1DA241652B80000CBCA /* ImagesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesCollectionViewCell.swift; sourceTree = "<group>"; };
+		83C90546240ECCEB00367F6E /* PreGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreGameViewController.swift; sourceTree = "<group>"; };
 		D910FF181F04AB3200C444DA /* DataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataSource.swift; sourceTree = "<group>"; };
 		D910FF1E1F04DD4F00C444DA /* ResultViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultViewControllerTests.swift; sourceTree = "<group>"; };
 		D910FF201F05E22400C444DA /* ScenarioViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScenarioViewControllerTests.swift; sourceTree = "<group>"; };
@@ -414,6 +422,9 @@
 				D9D10A3F1EE130BD003584F4 /* ResultsViewController.swift */,
 				D95BBB7F1F4A911D00E0E620 /* AboutViewController.swift */,
 				5BAC4643206D2D9B0091C73C /* EndViewController.swift */,
+				83C90546240ECCEB00367F6E /* PreGameViewController.swift */,
+				8323C1D62416277C0000CBCA /* PreGameSetupViewController.swift */,
+				8323C1DA241652B80000CBCA /* ImagesCollectionViewCell.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -427,6 +438,7 @@
 				D959CBCC1EE6489100C31753 /* Scenario.swift */,
 				D959CBCE1EE6491800C31753 /* Score.swift */,
 				D9E190A51EE952CD00109F39 /* Accessory.swift */,
+				8323C1D824164B600000CBCA /* PreGameImages.swift */,
 			);
 			name = "Data Models";
 			sourceTree = "<group>";
@@ -636,12 +648,14 @@
 				2AF82A901B4BA74A00307BED /* FMDatabaseQueue.m in Sources */,
 				2AF82A911B4BA74A00307BED /* FMResultSet.m in Sources */,
 				3433A233241338990018A339 /* AppStoreReviewManager.swift in Sources */,
+				8323C1DB241652B80000CBCA /* ImagesCollectionViewCell.swift in Sources */,
 				2AF82A8F1B4BA74A00307BED /* FMDatabasePool.m in Sources */,
 				D959CBC71EE6430E00C31753 /* Answer.swift in Sources */,
 				2A8D2E071D17CDF700154F98 /* ShopViewController.swift in Sources */,
 				D9AAA9C61EF2481900287A79 /* GuessingBox.swift in Sources */,
 				6A9A4A1A20B51DE500FFC5AA /* Animate.swift in Sources */,
 				D9D10A401EE130BD003584F4 /* ResultsViewController.swift in Sources */,
+				83C90547240ECCEB00367F6E /* PreGameViewController.swift in Sources */,
 				D959CBCD1EE6489100C31753 /* Scenario.swift in Sources */,
 				D969D26C1EE8F36200A5133F /* FMResultSetNullCheckExtension.swift in Sources */,
 				D959CBCF1EE6491800C31753 /* Score.swift in Sources */,
@@ -651,9 +665,11 @@
 				2A0CA5551B294C6B00ED8781 /* AppDelegate.swift in Sources */,
 				EAB1B4AC1FE9E4FB005964AF /* UserDefaultsHandler.swift in Sources */,
 				D9E190A61EE952CD00109F39 /* Accessory.swift in Sources */,
+				8323C1D72416277C0000CBCA /* PreGameSetupViewController.swift in Sources */,
 				6A69DC8D20AB386B006511E3 /* StorySequencePlayer.swift in Sources */,
 				D984D3031F0F59A40006270D /* SinkToSwimQuestion.swift in Sources */,
 				6A69DC9120AB3892006511E3 /* StorySequenceModel.swift in Sources */,
+				8323C1D924164B600000CBCA /* PreGameImages.swift in Sources */,
 				D984D3011F0F598C0006270D /* SinkToSwimGameScene.swift in Sources */,
 				6A29A3F220AC9CAC00DABACE /* SoundPlayer.swift in Sources */,
 				D95BBB801F4A911D00E0E620 /* AboutViewController.swift in Sources */,
